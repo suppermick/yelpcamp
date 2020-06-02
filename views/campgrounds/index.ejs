@@ -1,8 +1,9 @@
 <%- include("../partials/header") %>
 
 
-<div class="container-fluid container">
+
 	<header class="jumbotron">
+		<div class="container-fluid container">
 		<h1 class="display-4">
 		Welcome to YelpCamp!
 		</h1>
@@ -23,38 +24,33 @@
 	</div>	
 </div>
 	<% campgrounds.forEach(function(campground){ %>
-	
-		<div class="container py-2 camp-link">
-			<div class="card">
-				<div class="card-body">
-					<div class="container">
-					<div class="row justify-content-center">
-						<div class="col-md-3 col-sm-6">
-							<h6 class="text-center">
-								<strong><%= campground.name %></strong>
-							</h6>
-							<div class="thumbnail">
-								<img src="<%= campground.image %>">
-							</div>
-						</div>
-						<div class="col-md-9 col-sm-6">
-							<div class="row justify-content-center">
-								<p class="text-center">
-								<%= campground.description %>	
-								</p>
-							</div>
-							<div class="row justify-content-center">
-							<p>
-								<a href="/campgrounds/<%= campground._id %>" class="btn btn-primary">More Info</a>
-							</p>						
-							</div>
-
+			<div class="container py-2">
+				<a href="/campgrounds/<%= campground._id %>" class="camp-link">
+					<div class="card camp-link">
+						<div class="card-body">
+							<div class="container">
+								<div class="row justify-content-center">
+									<div class="col-md-3 col-sm-6">
+										<h6 class="text-center">
+											<strong><%= campground.name %></strong>
+										</h6>
+										<div class="thumbnail">
+											<img src="<%= campground.image %>">
+										</div>
+									</div>
+									<div class="col-md-9 col-sm-6">
+										<div class="row justify-content-center">
+											<p class="text-center">
+											<%= campground.description %>	
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>	
 						</div>
 					</div>
-					</div>	
-				</div>	
+				</a>	
 			</div>
-		</div>	
 	<% }); %>
 
 

@@ -2,27 +2,44 @@
 	width: 100%;
 }
 
-.thumbnail {
-	padding: 0;
-}
-
-.thumbnail .caption-full {
-	padding: 9px;
-}
 
 #delete-form {
 	display:inline;
 }
 
-.body {
-	padding-top: 5em;
-	background-color:#c6ffca;
-}
-
 .color-theme-main {
-	background-color: #008002;
+	background-color: #2d6a4f;
 }
 
-.camp-link:hover {
-	background-color:#76db73;
+div.camp-link {
+	box-shadow: 1px 1px 16px -2px #1b4332;
+	transition:.1s;
+
+}
+
+
+div.camp-link:hover {
+	box-shadow: 1px 1px 16px 3px #081c15;
+	text-decoration:none;
+	transition: .1s;
+}
+
+html body {
+	height:100%;
+	background-color: #d8f3dc;
+}
+a.camp-link {
+	color: black;
+	text-decoration:none;
+}
+a.camp-link:active {
+	text-decoration:none;
+	
+}
+
+.jumbotron {
+	padding-top: 7em;
+	background-image: url(https://images.unsplash.com/photo-1486837348513-8fb4a7624668?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80);
+	background-position: center;
+	background-size: 100%;
 }
