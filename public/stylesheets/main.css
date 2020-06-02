@@ -15,9 +15,14 @@
 }
 
 .body {
-	padding-top: 4em;
+	padding-top: 5em;
+	background-color:#c6ffca;
 }
 
 .color-theme-main {
-	background-color: #105218;
+	background-color: #008002;
+}
+
+.camp-link:hover {
+	background-color:#76db73;
 }
