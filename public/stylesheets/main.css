@@ -27,6 +27,9 @@ div.camp-link:hover {
 html body {
 	height:100%;
 	background-color: #d8f3dc;
+	min-width: 500px;
+	position:relative;
+	z-index:0;
 }
 a.camp-link {
 	color: black;
@@ -46,4 +49,46 @@ a.camp-link:active {
 	background-color: #d8f3dc;
 	color: #F0ead6;
 	text-shadow: 2px 2px 5px #081c15;
+}
+
+.nav-link {
+	color: #f0ead6;
+}
+.nav-link:hover {
+	color: #f0ead6;
+	text-shadow:2px 2px 3px #081c15;
+}
+
+.navbar-brand {
+	color: #f0ead6;
+}
+
+.navbar-brand:hover {
+	color: #f0ead6;
+	text-shadow:2px 2px 3px #081c15;
+}
+
+.flash-message {
+	padding-top: 4em;
+	position: fixed;
+	z-index: 1;
+	animation: fadeOut ease-out 4s;
+	animation-fill-mode: forwards;
+}
+
+.navbar {
+	position: fixed;
+	z-index:2;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  80% {
+    opacity:1;
+  }
+100% {
+	opacity:0;
+	}	
 }
