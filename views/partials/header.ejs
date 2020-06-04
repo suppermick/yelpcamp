@@ -17,17 +17,17 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <% if(!currentUser) { %>
 	  <li>
-		  <a class="nav-link" href="/login">Sign In</a>
+		  <a class="nav-link link-color" href="/login">Sign In</a>
 	  </li>
 	  <li class="nav-item">
-        <a class="nav-link" href="/register">Sign Up</a>
+        <a class="nav-link link-color" href="/register">Sign Up</a>
       </li>
 		<% } else { %>
 	  <li>
-		<a class="nav-link" href="#">Welcome, <%=currentUser.username%></a>
+		<a class="nav-link link-color" href="#">Welcome, <%=currentUser.username%></a>
       </li>
 	  <li>
-		<a class="nav-link" href="/logout">Log Out</a>
+		<a class="nav-link link-color" href="/logout">Log Out</a>
 	  </li>
 		<% } %>
     </ul>
