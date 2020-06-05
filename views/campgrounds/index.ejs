@@ -32,9 +32,26 @@
 										
 									</div>
 									<div class="col-md-9 col-sm-6">
-										<h6 class="text-center">
-											<strong><%=index+1%>. <%= campground.name %></strong>
-										</h6>
+										<div class="row">
+											<div class="col-sm-6">
+												<h6 class="float-left">
+												<strong><%=index+1%>. <%= campground.name %></strong>
+												</h6>	
+											</div>
+											<div class="col-sm-6">
+												<span class="float-right">
+													Rating: <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+												</span>
+											</div>
+										</div>
+										
+
+										 
+										
+										<p>
+											1234 Campground Road
+											Somehwere, SO 99845
+										</p>
 										<div class="row justify-content-center">
 											<p class="text-center">
 											<%= campground.description %>	
