@@ -130,3 +130,7 @@ width: auto;
 	text-shadow:2px 2px 3px #081c15;
 }
 
+p.camp-index-address {
+	font-size: small;
+	color: grey;
+}
