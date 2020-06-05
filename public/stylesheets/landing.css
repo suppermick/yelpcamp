@@ -10,7 +10,8 @@ body {
 }
 
 #landing-header h1 {
-	color: #fff;
+	color: #F0ead6;
+	text-shadow: 0px 0px 2px #081c15, 0px 0px 4px #081c15;
 }
 
 .slideshow {
