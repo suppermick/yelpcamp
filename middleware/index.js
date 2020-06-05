@@ -2,7 +2,19 @@ var Campground = require("../models/campground");
 var Comment = require("../models/comment");
 var middlewareObj = {};
 
+// middlewareObj.passwordValidate = function validatePassword(){
+// 		var password = document.getElementById("txtPassword")
+//   , confirm_password = document.getElementById("txtConfirmPassword");
 
+//   if(password.value != confirm_password.value) {
+//     confirm_password.setCustomValidity("aksljdfalskdjf");
+//   } else {
+//     confirm_password.setCustomValidity('');
+//   }
+// }
+
+// password.onchange = validatePassword;
+// confirm_password.onkeyup = validatePassword;
 
 middlewareObj.checkCampgroundOwnership = function(req, res, next){
     Campground.findById(req.params.id, function(err, foundCampground){
