@@ -18,7 +18,7 @@
 			</h3>
 	</div>	
 </div>
-	<% campgrounds.forEach(function(campground){ %>
+	<% campgrounds.forEach(function(campground, index){ %>
 			<div class="container py-2">
 				<a href="/campgrounds/<%= campground._id %>" class="camp-link">
 					<div class="card camp-link box-shadow">
@@ -26,14 +26,15 @@
 							<div class="container">
 								<div class="row justify-content-center">
 									<div class="col-md-3 col-sm-6">
-										<h6 class="text-center">
-											<strong><%= campground.name %></strong>
-										</h6>
 										<div class="thumbnail">
 											<img src="<%= campground.image %>">
 										</div>
+										
 									</div>
 									<div class="col-md-9 col-sm-6">
+										<h6 class="text-center">
+											<strong><%=index+1%>. <%= campground.name %></strong>
+										</h6>
 										<div class="row justify-content-center">
 											<p class="text-center">
 											<%= campground.description %>	
