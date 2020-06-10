@@ -60,4 +60,29 @@ middlewareObj.isLoggedIn = function(req, res, next){
 	}
 }
 
+middlewareObj.checkReviewExistence = function (req, res, next) {
+    if (req.isAuthenticated()) {
+        Campground.findById(req.params.id).populate("comments").exec(function (err, foundCampground) {
+            if (err || !foundCampground) {
+                req.flash("error", "Campground not found.");
+                res.redirect("back");
+            } else {
+                // check if req.user._id exists in foundCampground.reviews
+                var foundUserReview = foundCampground.comments.some(function (comment) {
+                    return comment.author.id.equals(req.user._id);
+                });
+                if (foundUserReview) {
+                    req.flash("error", "You already wrote a review. Try updating your comment instead!");
+                    return res.redirect("/campgrounds/" + foundCampground._id);
+                }
+                // if the review was not found, go to the next middleware
+                next();
+            }
+        });
+    } else {
+        req.flash("error", "You need to login first.");
+        res.redirect("back");
+    }
+};
+
 module.exports = middlewareObj;

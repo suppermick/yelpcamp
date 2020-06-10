@@ -11,7 +11,7 @@ router.get("/:commentId/edit", middleware.isLoggedIn, middleware.checkCommentOwn
 
 //This route is a GET request that displays the "Add new comment" page
 
-router.get("/new", middleware.isLoggedIn, function(req, res){
+router.get("/new", middleware.isLoggedIn, middleware.checkReviewExistence, function(req, res){
 	Campground.findById(req.params.id, function(err, campground){
 		if(err){
 			console.log(err);
