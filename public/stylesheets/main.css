@@ -135,4 +135,6 @@ p.camp-index-address {
 	color: grey;
 }
 
-
+.username-display {
+	text-transform: capitalize;
+}

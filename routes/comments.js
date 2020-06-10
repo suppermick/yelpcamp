@@ -22,9 +22,9 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 
 });
 
-//This route posts the form to the server 
+//CREATE 
 router.post("/", middleware.isLoggedIn, function(req, res){
-	Campground.findById(req.params.id, function(err, campground){
+	 Campground.findById(req.params.id).populate("comments").exec(function (err, campground){
 		if(err){
 			console.log(err);
 			res.redirect("/campground");
@@ -37,6 +37,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 					comment.author.username = req.user.username;
 					comment.save();
 					campground.comments.push(comment);
+					campground.rating = calculateAverage(campground.comments);
 					campground.save();
 					req.flash("success", "Comment Added!");
 					res.redirect("/campgrounds/" + campground._id);
@@ -72,5 +73,16 @@ router.delete("/:comment_id", function(req, res){
 	});
 });
 
+function calculateAverage(comments) {
+    if (comments.length === 0) {
+        return 0;
+    }
+    var sum = 0;
+    comments.forEach(function (comment) {
+        sum += comment.rating;
+    });
+    return sum / comments.length;
+
+}
 
 module.exports = router;
