@@ -138,3 +138,7 @@ p.camp-index-address {
 .username-display {
 	text-transform: capitalize;
 }
+
+.checked {
+	color: orange;
+}
