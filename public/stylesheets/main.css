@@ -109,6 +109,7 @@ a.camp-link:active {
 .card-login {
 	min-width:50%;
 	background-color: rgba( 45, 106, 79, 0.5) !important;
+	border-radius: 0px;
 
 }
 
@@ -140,9 +141,21 @@ p.camp-index-address {
 }
 
 .checked {
-	color: orange;
+	color: #40916c;
 }
 
 .btn {
 	border-radius: 0px;
+}
+
+.content-editor {
+	size: 10px;
+}
+
+.caption-full {
+	margin: .5em;
+}
+
+.comment-text {
+	white-space: pre-wrap;
 }
