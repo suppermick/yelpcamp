@@ -142,3 +142,7 @@ p.camp-index-address {
 .checked {
 	color: orange;
 }
+
+.btn {
+	border-radius: 0px;
+}
