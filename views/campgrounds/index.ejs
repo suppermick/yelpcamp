@@ -1,88 +1,86 @@
 <%- include("../partials/header") %>
 
-
-
 	<header class="jumbotron">
 		<div class="container-fluid container">
-		<h1 class="display-4">
-		Welcome to YelpCamp!
-		</h1>
-		<p>
-			Find your next adventure....
-		</p>
+			<h1 class="display-4">
+				Welcome to YelpCamp!
+			</h1>
+			<p>
+				Find your next adventure....
+			</p>
 	</header>
 	<div class="container">
 		<div class="">
 			<h3>
 				Our most popular campsites!
 			</h3>
-	</div>	
-</div>
+		</div>
+	</div>
 	<% campgrounds.forEach(function(campground, index){ %>
-			<div class="container py-2">
-				<a href="/campgrounds/<%= campground._id %>" class="camp-link">
-					<div class="card camp-link box-shadow">
-						<div class="card-body">
-							<div class="container">
-								<div class="row justify-content-center">
-									<div class="col-md-3 col-sm-6 align-self-center">
-										<div class="thumbnail">
-											<img src="<%= campground.image %>">
-										</div>
-										
+		<div class="container py-2">
+			<a href="/campgrounds/<%= campground._id %>" class="camp-link">
+				<div class="card camp-link box-shadow">
+					<div class="card-body">
+						<div class="container">
+							<div class="row justify-content-center">
+								<div class="col-md-3 col-sm-6 align-self-center">
+									<div class="thumbnail">
+										<img src="<%= campground.image %>">
 									</div>
-									<div class="col-md-9 col-sm-6">
-										<div class="row">
-											<div class="col-sm-6">
-												<h6 class="float-left">
-												<strong><%=index+1%>. <%= campground.name %></strong>
-												</h6>	
-											</div>
-											<div class="col-sm-6">
-												<span class="float-right">
-													Rating: 							
-													<% if (campground.rating === 0) { %>
-														<em>No reviews yet.</em>
+
+								</div>
+								<div class="col-md-9 col-sm-6">
+									<div class="row">
+										<div class="col-sm-6">
+											<h6 class="float-left">
+												<strong>
+													<%=index+1%>.
+														<%= campground.name %>
+												</strong>
+											</h6>
+										</div>
+										<div class="col-sm-6">
+											<span class="float-right">
+												Rating:
+												<% if (campground.rating === 0) { %>
+													<em>No reviews yet.</em>
 													<% } else { %>
 														<span class="fas fa-star checked"></span>
 														<span class="fa-star <% if (campground.rating > 1.5) { %> checked fas <% } else { %> } far <% } %>"></span>
 														<span class="fa-star <% if (campground.rating > 2.5) { %> checked fas <% } else { %> } far <% } %>"></span>
 														<span class="fa-star <% if (campground.rating > 3.5) { %> checked fas <% } else { %> } far <% } %>"></span>
 														<span class="fa-star <% if (campground.rating > 4.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-													<% } %>
-												</span>
-											</div>
+														<% } %>
+											</span>
 										</div>
-										<div class="row">
-											<div class="col">
-												<p class="camp-index-address">
-												1234 Campground Road
-												Somehwere, SO 99845
-												</p>
-											</div>
+									</div>
+									<div class="row">
+										<div class="col">
+											<p class="camp-index-address">
+												1234 Campground Road Somehwere, SO 99845
+											</p>
 										</div>
+									</div>
 
-										<div class="row">
-											<div class="col">
-												<p>
-												<%= campground.description %>	
-												</p>
-											</div>
+									<div class="row">
+										<div class="col">
+											<p>
+												<%= campground.description %>
+											</p>
 										</div>
 									</div>
 								</div>
-							</div>	
+							</div>
 						</div>
 					</div>
-				</a>	
+				</div>
+			</a>
+		</div>
+		<% }); %>
+
+			<p>
+				<a href="/">Back to Landing Page</a>
+			</p>
 			</div>
-	<% }); %>
 
-
-<p>
-	<a href="/">Back to Landing Page</a>
-</p>
-</div>
-
-<%- include("../partials/footer") %>
-
+			<%- include("../partials/footer") %>
