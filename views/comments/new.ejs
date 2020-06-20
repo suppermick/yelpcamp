@@ -1,15 +1,12 @@
 <%- include("../partials/header") %>
 	<div class="container">
-		<div class="row">
-			<h1 style="text-align: center">New Review:
-				<%= campground.name %>
-			</h1>
+		<div class="row mt-5 pt-5">
 			<div class="container">
 				<form action="/campgrounds/<%= campground._id %>/comments" method="POST">
 					<div class="form-group">
-						<label for="rating">Leave a rating:</label>
+						<label for="rating">Leave a review for <%= campground.name %></label>
 						<fieldset class="starability-growRotate">
-							<legend>First rating:</legend>
+							<legend></legend>
 							<input type="radio" id="first-rate1" name="comment[rating]" value="1" />
 							<label for="first-rate1" title="Terrible">1 star</label>
 							<input type="radio" id="first-rate2" name="comment[rating]" value="2" />
@@ -18,15 +15,15 @@
 							<label for="first-rate3" title="Average">3 stars</label>
 							<input type="radio" id="first-rate4" name="comment[rating]" value="4" />
 							<label for="first-rate4" title="Very good">4 stars</label>
-							<input type="radio" id="first-rate5" name="comment[rating]" value="5" />
+							<input type="radio" id="first-rate5" name="comment[rating]" value="5" checked/>
 							<label for="first-rate5" title="Amazing">5 stars</label>
 						</fieldset>
 					</div>
 					<div class="form-group">
-						<textarea class="form-control" type="text" name="comment[text]" placeholder="Write a comment for this campground..." rows="5"></textarea>
+						<textarea class="form-control" type="text" name="comment[text]" placeholder="Write your review here..." rows="5"></textarea>
 					</div>
 					<div class="form-group">
-						<button class="btn btn-primary btn-block">Submit a Review</button>
+						<button class="btn btn-block color-theme-main">Submit a Review</button>
 					</div>
 				</form>
 				<a href="/campgrounds/<%= campground._id %>">Go Back</a>
