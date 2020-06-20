@@ -4,7 +4,7 @@
 			<div class="container">
 				<form action="/campgrounds/<%= campground._id %>/comments" method="POST">
 					<div class="form-group">
-						<label for="rating">Leave a review for <%= campground.name %></label>
+						<label for="rating">Leave a review for <strong><%= campground.name %></strong></label>
 						<fieldset class="starability-growRotate">
 							<legend></legend>
 							<input type="radio" id="first-rate1" name="comment[rating]" value="1" />

@@ -5,7 +5,7 @@ var middleware = require("../middleware");
 
 
 router.get("/", function(req, res){
-	Campground.find({}, function(err, allCampgrounds){
+	Campground.find({}).sort({date: -1}).exec(function(err, allCampgrounds){
 			if(err){
 				console.log(err);
 			} else {
@@ -43,7 +43,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 
 router.get("/:id", function(req, res){
     //find the campground with provided ID
-    Campground.findById(req.params.id).populate("comments").exec(function(err, foundCampground){
+    Campground.findById(req.params.id).populate({path:"comments", options: {sort: { "createdAt": -1 }}}).exec(function(err, foundCampground){
         if(err || !foundCampground){
             console.log(err);
             req.flash('error', 'Sorry, that campground does not exist!');
