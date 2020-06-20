@@ -159,3 +159,7 @@ p.camp-index-address {
 .comment-text {
 	white-space: pre-wrap;
 }
+
+.footer {
+	margin-top: 10em;
+}
