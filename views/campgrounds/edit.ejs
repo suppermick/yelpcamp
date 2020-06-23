@@ -1,16 +1,16 @@
 <%- include("../partials/header") %>
 
 
-<div class="container">
-	<div class="row">
-		<h1>Edit <%=campground.name%></h1>
+<div class="container mt-5">
+	<div class="container pt-5">
+		<h1 class="pb-4">Edit <%=campground.name%></h1>
 		<form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
-		<input class="form-control" type="text" value="<%=campground.name%>" name="campground[name]">
-		<input class="form-control" type="number" value="<%=campground.price%>" name="price" min="0.01" step="0.01">
-		<input class="form-control" type="text" value="<%=campground.image%>"  name="campground[image]">
-		<input class="form-control" type="text" value="<%=campground.description%>"  name="campground[description]">
-		<input class="form-control" type="text" value="<%=campground.description%>"  name="campground[location]">
-		<button class="btn btn-large btn-defualt btn-block btn-primary">Submit Changes!!</button>
+		<input class="form-control m-2" type="text" value="<%=campground.name%>" name="campground[name]">
+		<input class="form-control m-2" type="number" value="<%=campground.price%>" name="price" min="0.01" step="0.01">
+		<input class="form-control m-2" type="text" value="<%=campground.image%>"  name="campground[image]">
+		<input class="form-control m-2" type="text" value="<%=campground.location%>"  name="campground[location]">
+		<textarea class="form-control m-2" type="text" name="campground[description]" rows="5"><%=campground.description%></textarea>
+		<button class="btn m-2 color-theme-main">Submit Changes!!</button>
 		</form>
 		<p><a href="/">Go Back</a></p>
 	</div>
