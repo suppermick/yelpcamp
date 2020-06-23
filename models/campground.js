@@ -22,7 +22,11 @@ var campgroundSchema = new mongoose.Schema({
 			ref:"User"
 		},
 		username: String
-	}
+	},
+	location: String,
+	lng: Number,
+	lat: Number
+	
 });
 
 module.exports = mongoose.model("Campground", campgroundSchema);

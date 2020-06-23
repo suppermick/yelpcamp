@@ -70,8 +70,19 @@ router.put('/:comment_id', function(req, res) {
 		if (err) {
 			res.redirect('back');
 		} else {
-			req.flash('success', 'Comment Updated!');
-			res.redirect('/campgrounds/' + req.params.id);
+			Campground.findById(req.params.id)
+				.populate('comments')
+				.exec(function(err, campground) {
+					if (err) {
+						console.log(err);
+						res.redirect('back');
+					} else {
+						campground.rating = calculateAverage(campground.comments);
+						campground.save();
+						req.flash('success', 'Comment Updated!');
+						res.redirect('/campgrounds/' + req.params.id);
+					}
+				});
 		}
 	});
 });

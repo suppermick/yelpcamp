@@ -1,86 +1,129 @@
 <%- include("../partials/header") %>
 
-<div class="container show-panel">
-	<div class="conatiner">
-		<div class="row">
-			<div class="col-md-3">
-				<p class="lead">YelpCamp</p>
-				<div class="row">
-					This reserved for google mini map
+	<div class="container show-panel">
+		<div class="conatiner">
+			<div class="row">
+				<div class="col-md-3">
+					<p class="lead">Location Details:</p>
+					<div class="row" id="map">
+						This space is reserved for a google mini map.
+
+					</div>
+					<div class="row">
+						<p>
+							<%=campground.location%>
+						</p>
+					</div>
 				</div>
-				<div class="row">
-					<p>
-						1234 Campground Road Somehwere, SO 99845
-					</p>
-				</div>
-			</div>
-			<div class="col-md-9">
-				<div class="thumbnail">
-					<img class="img-responsive" src="<%= campground.image %>">
-					<div class="caption-full">
-						<h4 class="float-right">$<%= campground.price%>/Night</h4>
-						<h4><%= campground.name %> 
-							<% if (campground.rating === 0) { %>
-								<em>No reviews yet.</em>
-							<% } else { %>
-								<span class="fas fa-star checked"></span>
-								<span class="fa-star <% if (campground.rating > 1.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-								<span class="fa-star <% if (campground.rating > 2.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-								<span class="fa-star <% if (campground.rating > 3.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-								<span class="fa-star <% if (campground.rating > 4.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-							<% } %>
-						</h4>
-						<div class="container my-3 border-left">
-							Submitted by <em><strong class="username-display"><%= campground.author.username%></em></strong>
-							<% if(currentUser && campground.author.id.equals(currentUser._id)){ %>									
-								<a href="/campgrounds/<%=campground._id%>/edit"><button class="btn btn-secondary" href="/campgrounds/<%=campground._id%>/edit">
-									<i class="fas fa-edit content-editor"></i>
-								</button></a>
-								<form id="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
-								<button class="btn btn-secondary">
-									<i class="far fa-trash-alt"></i>
-								</button>
-								</form>	
-							<% } %>
+				<div class="col-md-9">
+					<div class="thumbnail">
+						<img class="img-responsive" src="<%= campground.image %>">
+						<div class="caption-full">
+							<h4 class="float-right">$
+								<%= campground.price%>/Night</h4>
+							<h4>
+								<%= campground.name %>
+									<% if (campground.rating === 0) { %>
+										<em>No reviews yet.</em>
+										<% } else { %>
+											<span class="fas fa-star checked"></span>
+											<span class="fa-star <% if (campground.rating > 1.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<span class="fa-star <% if (campground.rating > 2.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<span class="fa-star <% if (campground.rating > 3.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<span class="fa-star <% if (campground.rating > 4.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<% } %>
+							</h4>
+							<div class="container my-3 border-left">
+								Submitted by
+								<em>
+									<strong class="username-display">
+										<%= campground.author.username%>
+								</em>
+								</strong>
+								<% if(currentUser && campground.author.id.equals(currentUser._id)){ %>
+									<a href="/campgrounds/<%=campground._id%>/edit">
+										<button class="btn btn-secondary" href="/campgrounds/<%=campground._id%>/edit">
+											<i class="fas fa-edit content-editor"></i>
+										</button>
+									</a>
+									<form id="delete-form" action="/campgrounds/<%=campground._id%>?_method=DELETE" method="POST">
+										<button class="btn btn-secondary">
+											<i class="far fa-trash-alt"></i>
+										</button>
+									</form>
+									<% } %>
+							</div>
+
+							<p>
+								<span>
+									<%= campground.description %>
+								</span>
+							</p>
+
 						</div>
-							
-						
-						<p><span><%= campground.description %></span></p>
-	
 					</div>
-				</div>
-			<hr>
-				<div class="well">
-					<div class="text-right pb-3">
-						<a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Write a Review!</a>
-				</div>
-				<% campground.comments.forEach(function(comment){ %>
-				<div class="row mt-3">
-					<div class="col-md-12">
-						<strong class="username-display pb-2 pl-2 border-left" ><%= comment.author.username %></strong>
-						
-							<% if (comment.rating === 0) { %>
-								<em>No reviews yet.</em>
-							<% } else { %>
-								<span class="fas fa-star checked"></span>
-								<span class="fa-star <% if (comment.rating > 1.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-								<span class="fa-star <% if (comment.rating > 2.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-								<span class="fa-star <% if (comment.rating > 3.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-								<span class="fa-star <% if (comment.rating > 4.5) { %> checked fas <% } else { %> } far <% } %>"></span>
-							<% } %>
-						
-						<span class="float-right text-muted font-italic"><%= moment(comment.createdAt).fromNow() %></span>
-						<p class="p-2 border-left comment-text"><%=comment.text%></p>
-						<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
-						<a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit"><button class="btn btn-secondary" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit"><i class="fas fa-edit"></i></button></a>
-						<form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-						<button class="btn btn-secondary">
-							<i class="far fa-trash-alt"></i>
-						</button>
-						</form>
-						<% } %>
-					</div>
-				</div>
-				
-				<% }) %>
-<%- include("../partials/footer") %>
+					<hr>
+					<div class="well">
+						<div class="text-right pb-3">
+							<a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Write a Review!</a>
+						</div>
+						<% campground.comments.forEach(function(comment){ %>
+							<div class="row mt-3">
+								<div class="col-md-12">
+									<strong class="username-display pb-2 pl-2 border-left">
+										<%= comment.author.username %>
+									</strong>
+
+									<% if (comment.rating === 0) { %>
+										<em>No reviews yet.</em>
+										<% } else { %>
+											<span class="fas fa-star checked"></span>
+											<span class="fa-star <% if (comment.rating > 1.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<span class="fa-star <% if (comment.rating > 2.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<span class="fa-star <% if (comment.rating > 3.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<span class="fa-star <% if (comment.rating > 4.5) { %> checked fas <% } else { %> } far <% } %>"></span>
+											<% } %>
+
+												<span class="float-right text-muted font-italic">
+													<%= moment(comment.createdAt).fromNow() %>
+												</span>
+												<p class="p-2 border-left comment-text">     <%=comment.text%></p>
+												<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+													<a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">
+														<button class="btn btn-secondary" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">
+															<i class="fas fa-edit"></i>
+														</button>
+													</a>
+													<form id="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+														<button class="btn btn-secondary">
+															<i class="far fa-trash-alt"></i>
+														</button>
+													</form>
+													<% } %>
+								</div>
+							</div>
+
+							<% }) %>
+								<script>
+									function initMap() {
+										// Define Camp Location
+										var campLocation = {
+											lat: <%=campground.lat%>,
+											lng: <%=campground.lng%>
+										};
+										// The map, centered at Location
+										var map = new google.maps.Map(
+											document.getElementById('map'), {
+												zoom: 15,
+												center: campLocation
+											});
+										// The marker, positioned at Location
+										var marker = new google.maps.Marker({
+											position: campLocation,
+											map: map
+										});
+									}
+								</script>
+								<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTxBDGNRSMdeBcdYVqzA6swxYUzI3VYRc&callback=initMap">
+								</script>
+								<%- include("../partials/footer") %>

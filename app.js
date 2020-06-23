@@ -1,3 +1,5 @@
+require('dotenv').config({path: __dirname + '/.env'});
+
 var express    = require("express"),
 	app        = express(),
 	bodyParser = require("body-parser"),
@@ -14,6 +16,7 @@ var express    = require("express"),
 var commentRoutes 		= require("./routes/comments"),
 	campgroundRoutes 	= require("./routes/campgrounds"),
 	indexRoutes 		= require("./routes/index");
+
 var path = require('path');
 
 mongoose.set('useNewUrlParser', true);
@@ -54,4 +57,5 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(3000, function(){
 	console.log("YelpCamp listening on port 3000");
+	console.log(process.env.GEO_KEY);
 });

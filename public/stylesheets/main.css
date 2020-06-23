@@ -163,3 +163,8 @@ p.camp-index-address {
 .footer {
 	margin-top: 10em;
 }
+
+#map {
+	width: 100%;
+	height: 300px;
+}
