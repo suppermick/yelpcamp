@@ -6,17 +6,15 @@
 				<div class="col-md-3">
 					<p class="lead">Location Details:</p>
 					<div class="row m-0" id="map"></div>
-					<div class="row">
-						<p class="text-center mt-3">
-							<a class="camp-link" href="https://www.google.com/maps/@<%=campground.lat%>,<%=campground.lng%>">
-								<%=campground.location%>
-							</a>
-						</p>
-					</div>
+					<div class="container">
+						<div class="align-self-center">
+							<p class="text-center mt-3"><a class="camp-link" href="https://www.google.com/maps/search/?api=1&query=<%=campground.lat%>,<%=campground.lng%>" target="_blank"><%=campground.location%></a></p>
+						</div>
+					</div>	
 				</div>
 				<div class="col-md-9">
 					<div class="thumbnail">
-						<img class="img-responsive" src="<%= campground.image %>">
+						<img id="show-img" class="img-responsive" src="<%= campground.image %>">
 						<div class="caption-full">
 							<h4 class="float-right">$
 								<%= campground.price%>/Night</h4>
