@@ -8,7 +8,9 @@
 					<div class="row m-0" id="map"></div>
 					<div class="row">
 						<p class="text-center mt-3">
-							<a class="camp-link" href="https://www.google.com/maps/@<%=campground.lat%>,<%=campground.lng%>"><%=campground.location%></a>
+							<a class="camp-link" href="https://www.google.com/maps/@<%=campground.lat%>,<%=campground.lng%>">
+								<%=campground.location%>
+							</a>
 						</p>
 					</div>
 				</div>
@@ -84,7 +86,9 @@
 												<span class="float-right text-muted font-italic">
 													<%= moment(comment.createdAt).fromNow() %>
 												</span>
-												<p class="p-2 border-left comment-text">     a<%=comment.text%></p>
+												<p class="p-2 border-left comment-text"> a
+													<%=comment.text%>
+												</p>
 												<% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
 													<a href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">
 														<button class="btn btn-secondary" href="/campgrounds/<%=campground._id%>/comments/<%=comment._id%>/edit">
@@ -99,8 +103,8 @@
 													<% } %>
 								</div>
 							</div>
-
 							<% }) %>
+
 								<script>
 									function initMap() {
 										// Define Camp Location
