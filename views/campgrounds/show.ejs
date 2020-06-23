@@ -5,13 +5,10 @@
 			<div class="row">
 				<div class="col-md-3">
 					<p class="lead">Location Details:</p>
-					<div class="row" id="map">
-						This space is reserved for a google mini map.
-
-					</div>
+					<div class="row m-0" id="map"></div>
 					<div class="row">
-						<p>
-							<%=campground.location%>
+						<p class="text-center mt-3">
+							<a class="camp-link" href="https://www.google.com/maps/@<%=campground.lat%>,<%=campground.lng%>"><%=campground.location%></a>
 						</p>
 					</div>
 				</div>
