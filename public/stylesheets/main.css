@@ -18,7 +18,7 @@
 
 .box-shadow {
 	box-shadow: 1px 1px 16px -2px #1b4332;
-	transition:.1s;
+	transition:.2s;
 
 }
 
@@ -26,7 +26,7 @@
 div.camp-link:hover {
 	box-shadow: 1px 1px 16px 3px #081c15;
 	text-decoration:none;
-	transition: .1s;
+	transition: .3s;
 }
 
 html body {
