@@ -24,21 +24,18 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="password" name="password" id="txtPassword" required>
+						<input type="password" class="form-control" placeholder="password" name="password" id="pw" required>
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="confirm password" id="txtConfirmPassword" onclick="return Validate()" required>
+						<input type="password" class="form-control" placeholder="confirm password" id="pwConfirm" required>
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Join YelpCamp!" class="btn login_btn">
+						<input type="submit" value="Join YelpCamp!" class="btn login_btn disabled" id="reg-btn">   <span id="valid" class="link-color"></span>
 					</div>
 				</form>
-				<button onclick="return Validate()">
-					test
-				</button>
 			</div>
 		</div>
 	</div>
