@@ -2,6 +2,12 @@
 $(function(){
 	console.log("ready");
 	$("#pwConfirm").keyup(validate);
+	
+	$.each($('.before-animation'), function(i, el){
+    setTimeout(function(){
+		$(el).addClass('slideFromRight')
+    },200 + ( i * 200 ));
+});
 
 });
 

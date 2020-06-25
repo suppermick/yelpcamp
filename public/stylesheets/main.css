@@ -174,3 +174,28 @@ p.camp-index-address {
 	width: 100%;
 	height: 300px;
 }
+
+.before-animation{
+	margin-left: 100%;
+}
+
+.slideFromRight {
+	
+	animation: .3s ease-out 0s 1 slideFromRight;
+	overflow:visible;
+	margin-left: 50%;
+	transform: translateX(-50%);
+	
+}
+
+@keyframes slideFromRight {
+	
+	0% {
+		margin-left: 100%;
+		transform: translateX(0%);
+	}
+	100% {
+		margin-left: 50%;
+		transform: translateX(-50%);
+	}	
+}
