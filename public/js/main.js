@@ -14,25 +14,25 @@ $(function(){
 	
 	$("a").click(function(event){
 		
-		event.preventDefault();
+		
 		linkLocation = this.href;
 		
 		if ( $(this).attr('target') == '_blank' ){
 			
-			return;
+			redirectPage;
 		
 		} else if ( $(this).hasClass("camp-link")) {
-			
+			event.preventDefault();
 			$.each($('.before-animation'), function(i, el){
 				setTimeout(function(){
 					$(el).addClass('slideToLeft')
 				},100 + ( i * 50 ));
 				
 			});
-			$(".body-content").delay(650).fadeOut(100, redirectPage);
+			$(".body-content").delay(500).fadeOut(100, redirectPage);
 			
 		} else {
-				   
+			event.preventDefault();	   
 			$(".body-content").fadeOut(100, redirectPage);
 		}
 	});
