@@ -181,7 +181,7 @@ p.camp-index-address {
 
 .slideFromRight {
 	
-	animation: .3s ease-out 0s 1 slideFromRight;
+	animation: .5s cubic-bezier(0.25, 0.1, 0.25, 1.0) slideFromRight;
 	overflow:visible;
 	margin-left: 50%;
 	transform: translateX(-50%);
@@ -193,6 +193,11 @@ p.camp-index-address {
 	0% {
 		margin-left: 100%;
 		transform: translateX(0%);
+	}
+/* 	
+	90%{
+		margin-left: 53%;
+		transform: translateX(-45%); */
 	}
 	100% {
 		margin-left: 50%;
