@@ -62,7 +62,7 @@
 					<hr>
 					<div class="well">
 						<div class="text-right pb-3">
-							<a class="btn btn-success" href="/campgrounds/<%=campground._id%>/comments/new">Write a Review!</a>
+							<a class="btn btn-success" id="review" href="/campgrounds/<%=campground._id%>/comments/new">Write a Review!</a>
 						</div>
 						<% campground.comments.forEach(function(comment){ %>
 							<div class="row mt-3">

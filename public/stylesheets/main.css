@@ -194,11 +194,10 @@ p.camp-index-address {
 		margin-left: 100%;
 		transform: translateX(0%);
 	}
-	/* 	
-	90%{
-		margin-left: 53%;
-		transform: translateX(-45%);
-	} */
+
+	20% {
+		opacity: 0;
+	}
 	100% {
 		opacity: 1;
 		margin-left: 50%;
@@ -219,7 +218,7 @@ p.camp-index-address {
 		margin-left: 50%;
 		transform: translateX(-50%);
 	}	
-	50%{
+	10%{
 		opacity:0;
 		
 	} 
@@ -232,4 +231,14 @@ p.camp-index-address {
 
 .body-content {
 	opacity: 0;
+}
+
+#review:hover {
+	transform: scale(1.05);
+	transition: .1s;
+	box-shadow: 1px 1px 16px 3px #081c15;
+}
+
+#review {
+	transition: .1s;
 }
