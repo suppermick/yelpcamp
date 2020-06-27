@@ -234,9 +234,9 @@ p.camp-index-address {
 }
 
 #review:hover {
-	transform: scale(1.05);
+	transform: scale(1.03);
 	transition: .1s;
-	box-shadow: 1px 1px 16px 3px #081c15;
+	box-shadow: 1px 1px 3px #081c15;
 }
 
 #review {
