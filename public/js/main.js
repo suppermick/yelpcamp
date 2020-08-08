@@ -29,17 +29,22 @@ $(function() {
 			$('.body-content').fadeOut(100, redirectPage);
 		}
 	});
-	var prevScrollpos = window.pageYOffset;
-	window.onscroll = function() {
-		var currentScrollPos = window.pageYOffset;
-		
-		if (prevScrollpos > currentScrollPos) {
-			$('#navbar').css("top","0px");
-		} else {
-			$('#navbar').css("top","-60px");
-		}
-		prevScrollpos = currentScrollPos;
-	};
+		var prevScrollpos = $(window).scrollTop();
+	
+		$(window).scroll(function() {
+			
+  		var currentScrollPos = $(window).scrollTop();
+  		if (prevScrollpos > currentScrollPos) {
+			console.log(currentScrollPos);
+			console.log(prevScrollpos);
+  		  $("#navbar").css({top:0});
+ 		 } else {
+			 console.log(currentScrollPos);
+			 console.log(prevScrollpos);
+ 		  $("#navbar").css({top:"-60px"});
+		  }
+	  prevScrollpos = currentScrollPos;
+	});
 });
 
 function redirectPage() {

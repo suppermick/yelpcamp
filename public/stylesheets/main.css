@@ -93,7 +93,10 @@ a.camp-link:active {
   	top: 0; /* Stay on top */
   	width: 100%; /* Full width */
 	transition: .3s;
+	
+
 }
+
 
 @keyframes fadeOut {
 	0% {
@@ -250,7 +253,7 @@ p.camp-index-address {
 html {
 	overflow: scroll;
 	overflow-x: hidden;
-	    scrollbar-width: none; /* Firefox */
+	scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none;
 }
 
