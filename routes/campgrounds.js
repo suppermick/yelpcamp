@@ -1,4 +1,5 @@
-require('dotenv').config({path: __dirname + '/.env'});
+// require('dotenv').config({path: __dirname + '/.env'});
+
 var express = require("express");
 var router = express.Router();
 var Campground = require("../models/campground");
