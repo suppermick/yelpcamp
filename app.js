@@ -17,13 +17,16 @@ var commentRoutes 		= require("./routes/comments"),
 	campgroundRoutes 	= require("./routes/campgrounds"),
 	indexRoutes 		= require("./routes/index");
 
+var dbPW = process.env.DB_PW;
 var path = require('path');
+var dbURL = "mongodb+srv://daigle:"+ process.env.DB_PW + "@daigle-yelpapp.phic1.mongodb.net/daigleCamp?retryWrites=true&w=majority";
+
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://daigle:yelpcamp@daigle-yelpapp.phic1.mongodb.net/daigleCamp?retryWrites=true&w=majority", {useNewUrlParser: true});
+mongoose.connect(dbURL, {useNewUrlParser: true});
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
