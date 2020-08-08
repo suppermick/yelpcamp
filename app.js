@@ -23,7 +23,7 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb://localhost:27017/yelp_camp_v2", {useNewUrlParser: true});
+mongoose.connect("mongodb+srv://daigle:yelpcamp@daigle-yelpapp.phic1.mongodb.net/daigleCamp?retryWrites=true&w=majority", {useNewUrlParser: true});
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
